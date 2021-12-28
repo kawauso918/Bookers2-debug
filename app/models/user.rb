@@ -5,6 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :books, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  
+  def already_liked?(book)
+    self.likes.exists?(book_id: book.id)
+  end
+  
   attachment :profile_image
 
   validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
