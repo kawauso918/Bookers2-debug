@@ -7,6 +7,8 @@
   <tr>
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
+	  <th><%= render 'users/follows', user: current_user %></th>
+	  <th><%= render 'users/followeds', user: current_user %></th>
   </tr>
 </table>
 
